@@ -1,0 +1,109 @@
+// SPDX-License-Identifier: GPL-2.0
+/dts-v1/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/input/input.h>
+
+#include "ar9132.dtsi"
+
+/ {
+	compatible = "netgear,wnap210-v2", "qca,ar9132";
+	model = "NETGEAR WNAP210 v2";
+
+	aliases {
+	};
+
+	extosc: ref {
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <40000000>;
+	};
+
+	keys {
+		compatible = "gpio-keys";
+	};
+
+	leds {
+	};
+
+};
+
+&uart {
+	status = "okay";
+};
+
+&pll {
+	clocks = <&extosc>;
+};
+
+&spi {
+	status = "okay";
+	num-cs = <1>;
+
+	flash@0 {
+		compatible = "jedec,spi-nor";
+		reg = <0>;
+		spi-max-frequency = <25000000>;
+    m25p;
+
+		partitions {
+			compatible = "fixed-partitions";
+			#address-cells = <1>;
+			#size-cells = <1>;
+
+			uboot: partition@0 {
+				label = "u-boot";
+				reg = <0x000000 0x040000>;
+				read-only;
+			};
+
+			ubootenv: partition@40000 {
+				label = "u-boot-env";
+				reg = <0x040000 0x010000>;
+				read-only;
+			};
+
+			partition@50000 {
+				label = "firmware";
+				reg = <0x050000 0x710000>;
+        compatible = "denx,uimage";
+			};
+
+      var: partition@760000 {
+        label = "var";
+        reg = <0x760000 0x80000>;
+        ro;
+      };
+
+      partition@7e0000 {
+        label = "manufacturing-data";
+        reg = <0x7e0000 0x10000>;
+        ro;
+      };
+
+			art: partition@7F0000 {
+				label = "art";
+				reg = <0x7F0000 0x010000>;
+				read-only;
+			};
+		};
+	};
+};
+
+&eth0 {
+	status = "okay";
+
+	phy-mode = "rgmii";
+	mtd-mac-address = <&uboot 0x1fc00>;
+
+	fixed-link {
+		speed = <1000>;
+		full-duplex;
+	};
+};
+
+&wmac {
+	status = "okay";
+	mtd-cal-data = <&art 0x1000>;
+	mtd-mac-address = <&uboot 0x1fc00>;
+};
