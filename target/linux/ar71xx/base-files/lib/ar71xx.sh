@@ -1089,6 +1089,9 @@ ar71xx_board_detect() {
 	*"RouterBOARD 921GS-5HPacD r2")
 		name="rb-921gs-5hpacd-r2"
 		;;
+	*"RouterBOARD 922UAGS-5HPacD")
+		name="rb-922uags-5hpacd"
+		;;
 	*"RouterBOARD 931-2nD")
 		name="rb-931-2nd"
 		;;
@@ -1118,6 +1121,9 @@ ar71xx_board_detect() {
 		;;
 	*"RouterBOARD mAP L-2nD")
 		name="rb-mapl-2nd"
+		;;
+	*"RouterBOARD SXT 2nD r3")
+		name="rb-sxt-2nd-r3"
 		;;
 	*"RouterBOARD SXT Lite2")
 		name="rb-sxt2n"

@@ -557,6 +557,7 @@ platform_check_image() {
 	rb-912uag-2hpnd|\
 	rb-912uag-5hpnd|\
 	rb-921gs-5hpacd-r2|\
+	rb-922uags-5hpacd|\
 	rb-951g-2hnd|\
 	rb-951ui-2hnd|\
 	rb-2011l|\
@@ -730,6 +731,7 @@ platform_check_image() {
 	rb-lhg-5nd|\
 	rb-map-2nd|\
 	rb-mapl-2nd|\
+	rb-sxt-2nd-r3|\
 	rb-wap-2nd|\
 	rb-wapg-5hact2hnd|\
 	rb-wapr-2nd)
@@ -758,6 +760,7 @@ platform_pre_upgrade() {
 	rb-lhg-5nd|\
 	rb-map-2nd|\
 	rb-mapl-2nd|\
+	rb-sxt-2nd-r3|\
 	rb-wap-2nd|\
 	rb-wapg-5hact2hnd|\
 	rb-wapr-2nd)
@@ -876,6 +879,7 @@ platform_do_upgrade() {
 	rb-912uag-2hpnd|\
 	rb-912uag-5hpnd|\
 	rb-921gs-5hpacd-r2|\
+	rb-922uags-5hpacd|\
 	rb-951g-2hnd|\
 	rb-951ui-2hnd|\
 	rb-2011il|\
