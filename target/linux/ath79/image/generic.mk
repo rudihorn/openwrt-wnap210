@@ -528,15 +528,15 @@ define Device/netgear_wnap210x
   IMAGE/factory.img := $$(IMAGE/default) | netgear-dni | check-size $$$$(IMAGE_SIZE)
 endef
 
-define Device/netgear_wnap210v2
+define Device/netgear_wnap210-v2
   $(Device/netgear_wnap210x)
-  DEVICE_TITLE := NETGEAR WNAP210v2
+  DEVICE_TITLE := NETGEAR WNAP210 v2
   NETGEAR_BOARD_ID := WNAP210v2
   IMAGE_SIZE := 7680k
   SUPPORTED_DEVICES += wnap210
 endef
 
-TARGET_DEVICES += netgear_wnap210v2
+TARGET_DEVICES += netgear_wnap210-v2
 
 define Device/netgear_wndr3x00
   ATH_SOC := ar7161
